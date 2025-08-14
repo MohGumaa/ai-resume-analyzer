@@ -60,6 +60,7 @@ const Upload = () => {
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
         setStatusText('Analysis complete, redirecting...');
         console.log(data);
+        navigate(`/resume/${uuid}`);
     }
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -84,7 +85,7 @@ const Upload = () => {
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
-                            <img src="/images/resume-scan.gif" alt="resume-scan" className="w-full"/>
+                            <img src="/images/resume-scan.gif" alt="resume-scan" className="w-full md:w-1/2"/>
                         </>
                     ): (
                         <h2>Drop your resume for an ATS score and improvement tips</h2>
